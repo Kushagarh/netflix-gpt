@@ -3,13 +3,12 @@ import Header from "./Header"
 import { checkValidate } from "../utilis/validate";
 import {  createUserWithEmailAndPassword,signInWithEmailAndPassword,updateProfile } from "firebase/auth";
 import { auth } from "../utilis/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser} from "../utilis/userSlice";
+import {USER_AVTAR} from "../utilis/constants"
 
 
 const Login=()=>{
-     const navigate=useNavigate();
      const dispatch=useDispatch();
 
      const [IsSignInForm,setIsSignInForm]=useState(true);
@@ -42,13 +41,12 @@ const Login=()=>{
                const user = userCredential.user;
 
                updateProfile(user, {
-                displayName: name.current.value, photoURL: "https://www.pinterest.com/pin/netflix-smileu-profile-icon-by-norbertsloth--950470696333873491/"
+                displayName: name.current.value, photoURL: USER_AVTAR
               }).then(() => {
                 // Profile updated!
                 const {uid,email , displayName,photoURL} = auth.currentUser;
                 dispatch(addUser({uid:uid,email:email,displayName:displayName ,photoURL:photoURL}));
 
-                navigate("/browse")
 
               }).catch((error) => {
                 // An error occurred
@@ -72,8 +70,7 @@ const Login=()=>{
              .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
-            console.log(user);
-            navigate("/browse")
+           
              })
             .catch((error) => {
                const errorCode = error.code;
