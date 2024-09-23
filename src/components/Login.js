@@ -5,7 +5,7 @@ import {  createUserWithEmailAndPassword,signInWithEmailAndPassword,updateProfil
 import { auth } from "../utilis/firebase";
 import { useDispatch } from "react-redux";
 import { addUser} from "../utilis/userSlice";
-import {USER_AVTAR} from "../utilis/constants"
+import {BG_URL, USER_AVTAR} from "../utilis/constants"
 
 
 const Login=()=>{
@@ -84,7 +84,7 @@ const Login=()=>{
         <div>
         <Header/>
         <div className="absolute">
-            <img src="https://gtwallpaper.org/sites/default/files/wallpaper/246844/netflix-background-246844-2224599-6408439.png" alt=""></img>
+            <img src={BG_URL} alt=""></img>
         </div>
 
         <form onSubmit={(e)=> e.preventDefault()} //we don't want to submit the form 

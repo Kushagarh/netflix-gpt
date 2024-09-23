@@ -14,3 +14,11 @@ export const API_OPTIONS = {
   
 
   export const IMG_CDN_URL="https://image.tmdb.org/t/p/w500"
+
+  export const BG_URL="https://gtwallpaper.org/sites/default/files/wallpaper/246844/netflix-background-246844-2224599-6408439.png"
+
+  export const SUPPORTED_LANGUAGES=[
+    {identifier:"en",name:"English"},
+    {identifier:"hindi",name:"Hindi"},
+    {identifier:"spanish",name:"Spanish"},
+  ];
